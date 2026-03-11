@@ -38,43 +38,24 @@ behavior:"smooth"
 
 
 /* reveal photos while scrolling */
-
- window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
 
 const reveals = document.querySelectorAll(".reveal");
 
-reveals.forEach((el)=>{
+reveals.forEach((el) => {
 
 const windowHeight = window.innerHeight;
 const elementTop = el.getBoundingClientRect().top;
 
-if(elementTop < windowHeight - 100){
-
+if (elementTop < windowHeight - 100) {
 el.classList.add("active");
-
-/* start typewriter when final section appears */
-
-if(el.id === "finalMessage"){
-
-const textElement = document.getElementById("finalText");
-
-if(!textElement.classList.contains("typed")){
-
-const text = textElement.innerHTML;
-
-textElement.classList.add("typed");
-
-typeWriter(text, textElement, 35);
-
-}
-
-}
-
 }
 
 });
 
 });
+
+  
 window.addEventListener("scroll", () => {
   const photos = document.querySelectorAll(".photo");
 
@@ -136,22 +117,5 @@ heart.remove();
 }
 
 
-function typeWriter(text, element, speed = 35) {
 
-let i = 0;
-element.innerHTML = "";
-
-function typing(){
-
-if(i < text.length){
-element.innerHTML += text.charAt(i);
-i++;
-setTimeout(typing, speed);
-}
-
-}
-
-typing();
-
-}
 
