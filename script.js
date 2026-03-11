@@ -113,4 +113,25 @@ setTimeout(() => {
 heart.remove();
 },4000);
 
+
+}
+
+
+function typeWriter(text, element, speed = 35) {
+
+let i = 0;
+element.innerHTML = "";
+
+function typing(){
+
+if(i < text.length){
+element.innerHTML += text.charAt(i);
+i++;
+setTimeout(typing, speed);
+}
+
+}
+
+typing();
+
 }
